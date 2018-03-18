@@ -55,17 +55,21 @@ class Node extends React.Component {
   render() {
     console.log('render node');
     return (
-      <div className='card' style={{padding: '5px', margin: '5px'}}>
-        <button type='button' onClick={this.addChild.bind(this)} className='btn btn-secondary'>
-          Add Child
-        </button>
-        {' '}
-        <input
-          type='text'
-          value={this.props.node.get('name')}
-          onChange={this.updateName.bind(this)}
-          className='form-control'
-        />
+      <div style={{padding: '5px', margin: '5px', border: 'solid #aaa 1px', borderRadius: '3px', background: 'rgba(200, 210, 255, 0.2)' }}>
+        <div className="input-group">
+          <input
+            type='text'
+            value={this.props.node.get('name')}
+            onChange={this.updateName.bind(this)}
+            className='form-control'
+          />
+          <div className="input-group-append">
+            <button type='button' onClick={this.addChild.bind(this)}
+              className='btn btn-secondary'>
+              Add Child
+            </button>
+          </div>
+        </div>
         <ul>
           {this.props.node.get('children').toArray().map((n, i)=>{
             return (
